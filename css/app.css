@@ -1,0 +1,60 @@
+body {
+    margin-top: 20px;
+}
+
+#menu {
+    background: none;
+}
+
+.template {
+    display: none;
+}
+
+.post {
+    overflow: hidden;
+    font-family: fantasy;
+    word-wrap: break-word;
+    max-width: 95%;
+    font-size: 160%;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-radius: 25px; 
+}
+
+.post:hover {
+    /*box-shadow: 0 0 15px #ccc;*/
+    cursor: pointer;
+}
+
+.time {
+    color: white;
+    font-size: 65%;
+}
+
+
+#space-div {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#space-div h2 {
+    font-size: 300%;
+    color: #fe2345;
+}
+
+#space {
+    background-image: url('giraffe.jpg');
+    height: 100px;
+    width: 1000px;
+    margin: 0 auto;
+    background-position: -100px;
+    background-attachment: fixed;
+    background-size: 1400px;
+    background-repeat: no-repeat;
+    border-radius: 300px;
+}
