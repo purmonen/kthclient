@@ -1,0 +1,29 @@
+<div class="row">
+<div class="col-sm-9">
+    <form role="form">
+      <h3>Add new post</h3>
+      <div class="form-group">
+          <label>Content</label> 
+          <textarea rows="7" class="form-control" ng-model="post.content"></textarea>
+      </div>
+      <div class="form-group">
+          <label>Color</label><br>
+          <input type="color" value="#ffeeff" ng-model="post.color">
+      </div>
+   </form>
+<button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+
+<button type="button" class="btn btn-danger" ng-click="delete()" ng-if="!isNew">Delete</button>
+<button type="button" class="btn btn-primary" ng-click="add()">Save</button>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
+
+<h3>Preview</h3>
+
+<div class="post editable" style="background-color: {{post.color}}">
+    <p><span ng-bind-html="html(post.content)"></span> <br><span class="time">{{post.timestamp | date:'yyyy-MM-dd HH:mm'}}</span><span class="edit-button glyphicon glyphicon-pencil"></span></p> 
+
+</div>
