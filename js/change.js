@@ -28,16 +28,17 @@ function ChangeManager(obj) {
 		changes = changes.slice(0, changeIndex+1);
 		var obj = clone(this.get());
 		func(obj);
-		changes.push(obj);
+		changes.push(clone(obj));
 		changeIndex++;
 		return this;
 	};
 
 	this.get = function() {
-		return changes[changeIndex];
+		var tmp = changes[changeIndex];
+		return tmp;
 	};
 
 	function clone(obj) {
-		return JSON.parse(JSON.stringify(obj));
+		return angular.copy(obj);
 	}
 }

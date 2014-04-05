@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-9">
+
+    <my-form></my-form>
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-danger" ng-click="delete()" ng-if="!isNew">Delete</button>
+    <button type="button" class="btn btn-primary" ng-click="add()">Save</button>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
+
+<h3>Preview</h3>
+<my-post></my-post>
+
+</div>
+</div>

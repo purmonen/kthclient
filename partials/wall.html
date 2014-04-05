@@ -10,12 +10,11 @@
 <button class="btn btn-default btn-sm" ng-click="posts.undo()" ng-class="{disabled: !posts.canUndo()}"><span class="glyphicon glyphicon-arrow-left"></span> Undo</button>
 <button class="btn btn-default btn-sm" ng-click="posts.redo()" ng-class="{disabled: !posts.canRedo()}"><span class="glyphicon glyphicon-arrow-right"></span> Redo</button>
 
-<span style="line-height:30px; margin-left:30px;color:#34e521;text-decoration:italic"><span class="glyphicon glyphicon-arrow-left"></span> You may edit without saving</span>
+<span style="line-height:30px; margin-left:30px;color:#34e521;text-decoration:italic"><span class="glyphicon glyphicon-arrow-left"></span> You can edit but not save</span>
 </div>
+
 </div>
 <br>
+<my-post ng-repeat="post in posts.get() | orderBy:'-timestamp'"></my-post>
 
-
-    <div ng-repeat="post in posts.get() | orderBy:'-timestamp'" class="post editable" style="background-color: {{post.color}}">
-        <p><span ng-bind-html="html(post.content)"></span> <br><span class="time">{{post.timestamp | date:'yyyy-MM-dd HH:mm'}}</span><span class="edit-button glyphicon glyphicon-pencil" ng-click="edit(post)"></span></p>
-    </div>
+</div>

@@ -4,8 +4,46 @@
 
 var controllers = angular.module('myApp.controllers', []);
 
-controllers.controller('ProjectCtrl', ['$scope', '$route',
-	function($scope, $route) {
+controllers.controller('ProjectCtrl', ['$scope', '$route', '$sce', 'Project',
+	function($scope, $route, $sce, Project) {
+		$scope.projects = Project;
+
+
+		$scope.html = $sce.trustAsHtml;
+
+		$scope.form = {
+			title: 'Add new project'
+		};
+
+		$scope.post = {
+			content: '',
+			color: '#000000',
+			backgroundColor: '#ffffff',
+			fontSize: 20,
+			fontFamily: 'verdana',
+			timeStamp: Date.now()
+		};
+
+		$scope.isNew = true;
+
+		$scope.fields = {
+			content: {type: 'textarea', label: 'Content'},
+		  color: {type: 'color', label: 'Foreground'},
+			backgroundColor: {type: 'color', label: 'Background'},
+			fontSize: {type: 'range', label: 'Font size'},
+			fontFamily: {type: 'text', label: 'Font family'}
+		};
+/*
+		$scope.post = {
+			name: 'MDI',
+			description: 'Project for course in human-computer-interaction.'
+		};
+
+		$scope.fields = {
+			name: {type: 'text', label: 'Name'},
+			description: {type: 'textarea', label: 'Description'}
+		}
+		*/
 	}]);
 
 
@@ -14,7 +52,6 @@ controllers.controller('WallCtrl', ['$scope', '$sce', '$route', '$http', '$cooki
 		$scope.password = $cookieStore.get('password');
 		$scope.errorMessage = '';
 		$scope.successMessage = '';
-
 
 		$scope.posts = Post;
 		var lastSaveIndex = 0;
@@ -46,18 +83,31 @@ controllers.controller('PostCtrl', ['$scope', '$sce', '$route', '$http', '$cooki
 		var lastSaveIndex = 0;
 		$scope.post = {
 			content: '',
-			color: '#ffffdd',
+			backgroundColor: '#ffffff',
+			color: '#000000',
+			fontSize: '30',
+			fontFamily: 'fantasy',
 			timestamp: Date.now()
 		}
 
+
 		$scope.isNew = true;
+		$scope.form = {
+			title: 'Add post',
+			fields: [
+				{model: 'post.content', type: 'textarea', label: 'Content'},
+			  {model: 'post.color', type: 'color', label: 'Foreground'},
+				{model: 'post.backgroundColor', type: 'color', label: 'Background'},
+				{model: 'post.fontSize', type: 'range', label: 'Font size'},
+				{model: 'post.fontFamily', type: 'text', label: 'Font family'}
+			]
+		};
+
 		var editIndex;
 
 		if ($routeParams.index) {
 			editIndex = parseInt($routeParams.index);
-			var post = Post.get()[editIndex];
-			$scope.post.content = post.content;
-			$scope.post.color = post.color;
+			$scope.post = angular.copy(Post.get()[editIndex]);
 			$scope.isNew = false;
 		}
 
@@ -74,9 +124,7 @@ controllers.controller('PostCtrl', ['$scope', '$sce', '$route', '$http', '$cooki
 			$location.path('/wall');
 		}
 
-		$scope.html = function(html) {
-			return $sce.trustAsHtml(html);
-		}
+		$scope.html = $sce.trustAsHtml;
 
 		$scope.delete = function() {
 			Post.delete(editIndex);

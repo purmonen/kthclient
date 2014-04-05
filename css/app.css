@@ -11,14 +11,14 @@ body {
     font-family: fantasy;
     word-wrap: break-word;
     max-width: 95%;
-    font-size: 160%;
+    font-size: 170%;
     float: left;
     margin-right: 20px;
     margin-bottom: 20px;
     padding: 20px;
     padding-top: 20px;
     padding-right: 35px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     border-radius: 25px;
 }
 
@@ -66,6 +66,7 @@ body {
     margin-top: 15px;
     height:30px;
     position: absolute;
+    color: black;
     right: 0;
     bottom: 0;
 }

@@ -1,0 +1,20 @@
+
+{{ post }};
+
+<form role="form">
+  <h3>{{form.title}}</h3>
+  <div ng-repeat="field in form.fields">
+    <div class="form-group">
+      <label>{{field.label}}</label><br>
+
+      <my-field my-model="field.model"></my-field>
+      <!--
+      <input class="form-control" type="text" my-model="field.model" ng-switch-when="text">
+      <input type="color" my-model="field.model" ng-switch-when="color">
+      <input type="range" my-model="field.model" ng-switch-when="range">
+      <textarea class="form-control" my-model="field.model" ng-switch-when="textarea"></textarea>
+    -->
+    </div>
+  </div>
+</form>
+
