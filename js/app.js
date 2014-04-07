@@ -20,20 +20,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   	controller: 'ProjectCtrl'
   });
   $routeProvider.when('/post/:index', {
-    templateUrl: 'partials/add.html',
+    templateUrl: 'partials/post.html',
     controller: 'PostCtrl'
   });
   $routeProvider.when('/post', {
-    templateUrl: 'partials/add.html',
+    templateUrl: 'partials/post.html',
     controller: 'PostCtrl'
   });
   $routeProvider.when('/save', {
     templateUrl: 'partials/save.html',
     controller: 'PostCtrl'
-  });
-  $routeProvider.when('/add', {
-    templateUrl: 'partials/add.html',
-    controller: 'ProjectCtrl'
   });
   $routeProvider.otherwise({redirectTo: '/'});
   //$locationProvider.html5Mode(true);

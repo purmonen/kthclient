@@ -4,48 +4,7 @@
 
 var controllers = angular.module('myApp.controllers', []);
 
-controllers.controller('ProjectCtrl', ['$scope', '$route', '$sce', 'Project',
-	function($scope, $route, $sce, Project) {
-		$scope.projects = Project;
-
-
-		$scope.html = $sce.trustAsHtml;
-
-		$scope.form = {
-			title: 'Add new project'
-		};
-
-		$scope.post = {
-			content: '',
-			color: '#000000',
-			backgroundColor: '#ffffff',
-			fontSize: 20,
-			fontFamily: 'verdana',
-			timeStamp: Date.now()
-		};
-
-		$scope.isNew = true;
-
-		$scope.fields = {
-			content: {type: 'textarea', label: 'Content'},
-		  color: {type: 'color', label: 'Foreground'},
-			backgroundColor: {type: 'color', label: 'Background'},
-			fontSize: {type: 'range', label: 'Font size'},
-			fontFamily: {type: 'text', label: 'Font family'}
-		};
-/*
-		$scope.post = {
-			name: 'MDI',
-			description: 'Project for course in human-computer-interaction.'
-		};
-
-		$scope.fields = {
-			name: {type: 'text', label: 'Name'},
-			description: {type: 'textarea', label: 'Description'}
-		}
-		*/
-	}]);
-
+controllers.controller('ProjectCtrl', [function() {}]);
 
 controllers.controller('WallCtrl', ['$scope', '$sce', '$route', '$http', '$cookieStore', '$timeout', '$location', 'Post',
 	function($scope, $sce, $route, $http, $cookieStore, $timeout, $location, Post) {
@@ -90,19 +49,7 @@ controllers.controller('PostCtrl', ['$scope', '$sce', '$route', '$http', '$cooki
 			timestamp: Date.now()
 		}
 
-
 		$scope.isNew = true;
-		$scope.form = {
-			title: 'Add post',
-			fields: [
-				{model: 'post.content', type: 'textarea', label: 'Content'},
-			  {model: 'post.color', type: 'color', label: 'Foreground'},
-				{model: 'post.backgroundColor', type: 'color', label: 'Background'},
-				{model: 'post.fontSize', type: 'range', label: 'Font size'},
-				{model: 'post.fontFamily', type: 'text', label: 'Font family'}
-			]
-		};
-
 		var editIndex;
 
 		if ($routeParams.index) {
